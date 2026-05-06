@@ -22,6 +22,7 @@ export class ProductService {
     return this.http.get(this.api);
   }
 
+  
   getProduct(id: string) {
     return this.http.get(`${this.api}/${id}`);
   }
