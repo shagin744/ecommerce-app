@@ -21,6 +21,7 @@ export class CartService {
     const items = this.cartItems.value;
     this.cartItems.next([...items, product]);
   }
+  
 
   removeItem(index: number) {
     const items = this.cartItems.value;
