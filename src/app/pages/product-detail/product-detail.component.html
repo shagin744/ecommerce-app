@@ -1,0 +1,10 @@
+<app-navbar></app-navbar>
+
+<div *ngIf="product" class="p-6">
+  <h1>{{ product.title }}</h1>
+  <p>{{ product.description }}</p>
+  <p class="text-green-600">₹ {{ product.price }}</p>
+  <button (click)="addToCart()" class="bg-yellow-400 px-4 py-2">
+    Add to Cart
+  </button>
+</div>

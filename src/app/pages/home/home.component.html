@@ -1,0 +1,19 @@
+<app-navbar
+  [activeCategory]="activeCategory"
+  [searchTerm]="searchTerm"
+  (searchSubmitted)="onSearchSubmitted($event)"
+  (categorySelected)="onCategorySelected($event)">
+</app-navbar>
+
+<div class="grid grid-cols-4 gap-6 p-5 bg-gray-100">
+  <app-product-card
+    *ngFor="let p of filteredProducts"
+    [product]="p">
+  </app-product-card>
+</div>
+
+<div
+  *ngIf="!filteredProducts.length"
+  class="bg-gray-100 px-5 pb-8 text-sm text-gray-600">
+  No products found for this search or section || 
+</div>

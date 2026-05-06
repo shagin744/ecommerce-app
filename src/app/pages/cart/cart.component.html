@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+
+<div class="p-6 bg-gray-100 min-h-screen">
+
+  <h1 class="text-2xl font-bold mb-4">Shopping Cart</h1>
+
+  <div *ngIf="cartItems.length === 0" class="text-center text-gray-500">
+    Your cart is empty 🛒
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="grid grid-cols-3 gap-6">
+
+    <div class="col-span-2 space-y-4">
+
+      <div *ngFor="let item of cartItems; let i = index"
+           class="flex bg-white p-4 rounded shadow">
+
+        
+        <img [src]="item.image" class="h-24 w-24 object-contain mr-4" alt="">
+
+        
+        <div class="flex-1">
+          <h2 class="font-semibold">{{ item.title }}</h2>
+          <p class="text-green-600 font-bold">₹ {{ item.price }}</p>
+
+          <button (click)="removeItem(i)"
+                  class="text-red-500 text-sm mt-2">
+            Remove
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    
+    <div class="bg-white p-4 rounded shadow h-fit">
+
+      <h2 class="text-lg font-bold mb-3">Order Summary</h2>
+
+      <p class="flex justify-between">
+        <span>Items:</span>
+        <span>{{ cartItems.length }}</span>
+      </p>
+
+      <p class="flex justify-between">
+        <span>Total:</span>
+        <span class="font-bold">₹ {{ getTotal() }}</span>
+      </p>
+
+      <button class="bg-yellow-400 w-full mt-4 py-2 rounded hover:bg-yellow-500">
+        Proceed to Buy
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
