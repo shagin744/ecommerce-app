@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
 
   private cartItems = new BehaviorSubject<any[]>([]);
@@ -29,3 +30,5 @@ export class CartService {
     this.cartItems.next([...items]);
   }
 }
+
+// cart service
